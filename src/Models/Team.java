@@ -1,10 +1,13 @@
 package Models;
 
+import java.util.ArrayList;
+
 public class Team {
     private String name;
     private int wonMatch;
     private int lostMatch;
     private int totalMatch;
+    private ArrayList<Partido> partidos = new ArrayList<>();
 
     public Team(String name) {
         this.name = name;
@@ -21,6 +24,7 @@ public class Team {
     }
 
     private int calcTotal(){
+        totalMatch = this.wonMatch + this.lostMatch;
         return this.wonMatch + this.lostMatch;
     }
 
@@ -32,5 +36,25 @@ public class Team {
     public void lostMatch(){
         this.lostMatch +=1;
         calcTotal();
+    }
+
+    public int getTotalMatch() {
+        return totalMatch;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getWonMatch() {
+        return wonMatch;
+    }
+
+    public int getLostMatch() {
+        return lostMatch;
+    }
+
+    public ArrayList<Partido> getPartidos() {
+        return partidos;
     }
 }
