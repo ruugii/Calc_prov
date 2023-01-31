@@ -8,59 +8,57 @@
     - total of matches
     - Partidos del equipo
 #### :construction: CONSTRUCTOR :construction:
-##### CONSTRUCTOR 1
+##### :open_file_folder: CONSTRUCTOR 1 :open_file_folder:
     - name
-##### CONSTRUCTOR 2
+##### :open_file_folder: CONSTRUCTOR 2 :open_file_folder:
     - name
     - wins
     - loses
-#### FUNCTIONS
+#### :file_folder: FUNCTIONS :file_folder:
     - Calculate total of matches
     - Add win
     - Add lose
-##### GETTERS AND SETTERS
+##### :open_file_folder: GETTERS AND SETTERS :open_file_folder:
     - Total of matches
     - Name
     - Wins
     - Loses
     - Partidos
 ### PARTIDO
-#### ATTRIBUTES
+#### :paperclip: ATTRIBUTES :paperclip:
     - team1
     - team2
     - winner
 #### :construction: CONSTRUCTOR :construction:
-##### CONSTRUCTOR 1
+##### :open_file_folder: CONSTRUCTOR 1 :open_file_folder:
     - team1
     - team2
-##### CONSTRUCTOR 2
+##### :open_file_folder: CONSTRUCTOR 2 :open_file_folder:
     - team1
     - team2
     - winner
-#### FUNCTIONS
-##### GETTERS AND SETTERS
+#### :file_folder: FUNCTIONS :file_folder:
+##### :open_file_folder: GETTERS AND SETTERS :open_file_folder:
     - Winner
 ### JORNADA
-#### ATTRIBUTES
+#### :paperclip: ATTRIBUTES :paperclip:
     - Partidos de la jornada
-#### CONSTRUCTOR
-##### CONSTRUCTOR 1
+#### :construction: CONSTRUCTOR :construction:
     - Partidos de la jornada
-#### FUNCTIONS
-##### GETTERS AND SETTERS
+#### :file_folder: FUNCTIONS :file_folder:
+##### :open_file_folder: GETTERS AND SETTERS :open_file_folder:
     - Partidos de la jornada
 ### LIGA
-#### ATTRIBUTES
+#### :paperclip: ATTRIBUTES :paperclip:
     - Jornadas de la liga
     - Equipos de la liga
     - Nombre de la liga
-#### CONSTRUCTOR
-##### CONSTRUCTOR 1
+#### :construction: CONSTRUCTOR :construction:
     - Nombre de la liga
     - Equipos de la liga
     - Jornadas de la liga
-#### FUNCTIONS
-##### GETTERS AND SETTERS
+#### :file_folder: FUNCTIONS :file_folder:
+##### :open_file_folder: GETTERS AND SETTERS :open_file_folder:
     - Nombre de la liga
     - Equipos de la liga
     - Jornadas de la liga
