@@ -1,13 +1,13 @@
-# Calculadora de gestion de ligas (esta creado para la liga de League of Legends LEC)
+# :trophy: Calculadora de gestion de ligas (esta creado para la liga de League of Legends LEC) :trophy:
 ## Models
 ### TEAM
-#### ATTRIBUTES
+#### :paperclip: ATTRIBUTES :paperclip:
     - name
     - numeber of wins
     - number of loses
     - total of matches
     - Partidos del equipo
-#### CONSTRUCTOR
+#### :construction: CONSTRUCTOR :construction:
 ##### CONSTRUCTOR 1
     - name
 ##### CONSTRUCTOR 2
@@ -29,7 +29,7 @@
     - team1
     - team2
     - winner
-#### CONSTRUCTOR
+#### :construction: CONSTRUCTOR :construction:
 ##### CONSTRUCTOR 1
     - team1
     - team2
