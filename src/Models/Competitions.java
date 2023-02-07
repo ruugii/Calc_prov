@@ -7,6 +7,8 @@ public class Competitions {
     private ArrayList<Jornada> jornadas = new ArrayList<>();
     private String name;
 
+    public Competitions(){}
+
     public Competitions(String name, ArrayList<Team> equipos, ArrayList<Jornada> jornadas) {
         this.equipos = equipos;
         this.name = name;

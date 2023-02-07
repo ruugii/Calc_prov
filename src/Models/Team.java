@@ -3,7 +3,7 @@ package Models;
 import java.util.ArrayList;
 
 public class Team {
-    private String name;
+    private final String name;
     private int wonMatch;
     private int lostMatch;
     private int totalMatch;
