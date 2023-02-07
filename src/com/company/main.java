@@ -1,86 +1,113 @@
 package com.company;
 
-import Models.Competitions;
-import Models.Jornada;
-import Models.Partido;
-import Models.Team;
+import Models.*;
 
 import java.util.*;
 
 public class main {
 
+    public static void main(String[] args) {
         final String menu = "Elige la opcion:\n\t1.- Ver todos los equipos\n\t2.- Ver todas las jornadas\n\t3.- Ver jornadas por jugar\n\t4.- Calcular casos";
-        final String menuLiga = "Que liga deseas visualizar?\n\t1.- LEC\n\t2.- SL\n\t3.- Salir";
+        final String menuLiga = "Que liga deseas visualizar?\n\t1.- LEC\n\t2.- PlayOff LEC\n\t3.- SL\n\t4.- Salir";
+        final String menuPlayOff = "Que grupo de PlayOff deseas visualizar?\n\t1.- Grupo A\n\t2.- Grupo B";
         Competitions competitionAnalize = new Competitions();
         int option;
         int option_2;
         do {
-            option_2 = readInt(1, 3, menuLiga);
+            option_2 = readInt(1, 4, menuLiga);
             switch (option_2){
                 case 1:
                      competitionAnalize = genLEC();
                      break;
                 case 2:
+                    Competitions aux = genLEC();
+
+                    PlayOffGSL LECPlayOffGroupA = genLECPlayOff(
+                            aux,
+                            "A",
+                            "Vitality", "Team Heretics",
+                            "SK Gaming", "KOI"
+                    );
+
+                    PlayOffGSL LECPlayOffGroupB = genLECPlayOff(
+                            aux,
+                            "B",
+                            "MAD Lions", "Astralis",
+                            "G2", "BDS"
+                    );
+
+                    switch (readInt(1, 2, menuPlayOff)){
+                        case 1:
+                            System.out.println(LECPlayOffGroupA);
+                            break;
+                        case 2:
+                            System.out.println(LECPlayOffGroupB);
+                    }
+
+                case 3:
                     competitionAnalize = genSL();
                     break;
-                case 3:
-                    System.out.println("Saliendo...");
-            }
-            option = readInt(1, 4, menu);
-            switch (option){
-                case 1:
-                    ArrayList<Team> teams = competitionAnalize.getEquipos();
-
-                    Collections.sort(teams, new Comparator<Team>() {
-                        @Override
-                        public int compare(Team o1, Team o2) {
-                            Integer a = Integer.valueOf(o2.getWonMatch());
-                            Integer b = Integer.valueOf(o1.getWonMatch());
-                            return a.compareTo(b);
-                        }
-                    });
-
-                    for (int i = 0; i < teams.size(); i++) {
-                        Team aux = teams.get(i);
-                        System.out.println(i+1 +".- " + aux.getName() + " | " + aux.getTotalMatch() + " | " + aux.getWonMatch() + " - " + aux.getLostMatch());
-                    }
-                    break;
-                case 2:
-                    ArrayList<Jornada> jornadas = competitionAnalize.getJornadas();
-                    for (int i = 0; i < jornadas.size(); i++) {
-                        ArrayList<Partido> jornada = jornadas.get(i).getPartidos();
-                        System.out.print("Jornada " + (i+1) + ": \n");
-                        for (int j = 0; j < jornada.size(); j++) {
-                            System.out.println("\tPartido " +(j+1) + ": " + jornada.get(j));
-                        }
-                    }
-                    break;
-                case 3:
-                    ArrayList<Jornada> Alljornadas = competitionAnalize.getJornadas();
-                    for (int i = 0; i < Alljornadas.size(); i++) {
-                        ArrayList<Partido> jornada = Alljornadas.get(i).getPartidos();
-                        System.out.print("Jornada " + (i+1) + ": \n");
-                        for (int j = 0; j < jornada.size(); j++) {
-                            if (jornada.get(j).getWinner() == 0) {
-                                System.out.println("\tPartido " +(j+1) + ": " + jornada.get(j));
-                            } else {
-
-                            }
-                            if (j == jornada.size()-1 && jornada.get(j).getWinner() != 0){
-                                System.out.println("\tJORNADA ACABADA");
-                            }
-                        }
-                    }
-                    break;
                 case 4:
+                    System.out.println("Saliendo...");
+                    break;
+            }
+            if (option_2 != 2) {
+                option = readInt(1, 4, menu);
+                switch (option){
+                    case 1:
+                        ArrayList<Team> teams = competitionAnalize.getEquipos();
+
+                        Collections.sort(teams, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                Integer a = Integer.valueOf(o2.getWonMatch());
+                                Integer b = Integer.valueOf(o1.getWonMatch());
+                                return a.compareTo(b);
+                            }
+                        });
+
+                        for (int i = 0; i < teams.size(); i++) {
+                            Team aux = teams.get(i);
+                            System.out.println(i+1 +".- " + aux.getName() + " | " + aux.getTotalMatch() + " | " + aux.getWonMatch() + " - " + aux.getLostMatch());
+                        }
+                        break;
+                    case 2:
+                        ArrayList<Jornada> jornadas = competitionAnalize.getJornadas();
+                        for (int i = 0; i < jornadas.size(); i++) {
+                            ArrayList<Partido> jornada = jornadas.get(i).getPartidos();
+                            System.out.print("Jornada " + (i+1) + ": \n");
+                            for (int j = 0; j < jornada.size(); j++) {
+                                System.out.println("\tPartido " +(j+1) + ": " + jornada.get(j));
+                            }
+                        }
+                        break;
+                    case 3:
+                        ArrayList<Jornada> Alljornadas = competitionAnalize.getJornadas();
+                        for (int i = 0; i < Alljornadas.size(); i++) {
+                            ArrayList<Partido> jornada = Alljornadas.get(i).getPartidos();
+                            System.out.print("Jornada " + (i+1) + ": \n");
+                            for (int j = 0; j < jornada.size(); j++) {
+                                if (jornada.get(j).getWinner() == 0) {
+                                    System.out.println("\tPartido " +(j+1) + ": " + jornada.get(j));
+                                } else {
+
+                                }
+                                if (j == jornada.size()-1 && jornada.get(j).getWinner() != 0){
+                                    System.out.println("\tJORNADA ACABADA");
+                                }
+                            }
+                        }
+                        break;
+                    case 4:
                     /*
                     for (int i = 0; i < ; i++) {
 
-                        
+
                     }
 
                     */
-                    System.out.println("WE ARE WORING ON IT");
+                        System.out.println("WE ARE WORING ON IT");
+                }
             }
         } while (option_2 != 3);
     }
@@ -393,6 +420,14 @@ public class main {
         jornadas.add(jornada18_completa);
 
         return (new Competitions("SL", teams, jornadas));
+    }
+
+    public static PlayOffGSL genLECPlayOff(Competitions competition, String group, String Team1, String Team2, String Team3, String Team4) {
+        return new PlayOffGSL(
+                "GROUP " + group,
+                new Partido(competition.getTeamByName(Team1), competition.getTeamByName(Team2)),
+                new Partido(competition.getTeamByName(Team3), competition.getTeamByName(Team4))
+        );
     }
 
     public static int readInt (int numMin, int numMax, String menu) {

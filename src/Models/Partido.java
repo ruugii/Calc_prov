@@ -31,6 +31,26 @@ public class Partido {
         return winner;
     }
 
+    public Team getTeamWinner() {
+        if (winner == 1) {
+            return team1;
+        } else if (winner == 2){
+            return team2;
+        } else {
+            return null;
+        }
+    }
+
+    public Team getTeamLose() {
+        if (winner == 1) {
+            return team2;
+        } else if (winner == 2){
+            return team1;
+        } else {
+            return null;
+        }
+    }
+
     @Override
     public String toString() {
         return team1.getName() + " vs " + team2.getName();

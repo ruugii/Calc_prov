@@ -38,4 +38,13 @@ public class Competitions {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Team getTeamByName(String name) {
+        for (int i = 0; i < this.equipos.size(); i++) {
+            if (this.equipos.get(i).getName().equalsIgnoreCase(name)){
+                return this.equipos.get(i);
+            }
+        }
+        return null;
+    }
 }
